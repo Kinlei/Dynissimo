@@ -1,3 +1,8 @@
+local Player = game:GetService("Players").LocalPlayer;
+
+local RE = Player.RemoteEvent;
+local RF = Player.RemoteFunction;
+
 getgenv().IrisAd = true;
 
 do
@@ -61,11 +66,6 @@ MainWindow:AddSlider({
 });
 
 Library:Init();
-
-local Player = game:GetService("Players").LocalPlayer;
-
-local RE = Player.RemoteEvent;
-local RF = Player.RemoteFunction;
 
 local WS = game:GetService("Workspace");
 local Tween = game:GetService("TweenService");
