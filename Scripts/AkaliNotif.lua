@@ -142,9 +142,7 @@ end
 local function FindIndexByDependency(Table, Dependency)
 	for Index, Object in next, Table do
 		if (typeof(Object) == "table") then
-			print("Searching sub-table...");
 			local Found = SearchTableFor(Object, Dependency);
-			print(Found);
 			if (Found) then
 				return Index;
 			end
