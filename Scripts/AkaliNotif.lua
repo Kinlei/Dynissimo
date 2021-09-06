@@ -58,7 +58,7 @@ local function CalculateBounds(TableOfObjects)
 	return {X = X, Y = Y, x = X, y = Y};
 end
 
-local CachedObjects = nil;
+local CachedObjects = {};
 
 local function Update()
 	local DeltaTime = tick() - LastTick;
@@ -181,10 +181,9 @@ return {
 		if (Title) or (Description) then -- Check that user has provided title and/or description
 			local Y = Title and 26 or 0;
 			if (Description) then
-				local TextSize = TextService:GetTextSize(Description, DescriptionSettings.Size, DescriptionSettings.Font, Vector2.new(0, 0)).X;
-				if (TextSize > MaxWidth) then
-					local Lines = math.ceil(TextSize / MaxWidth);
-					Y += (Lines * 14);
+				local TextSize = TextService:GetTextSize(Description, DescriptionSettings.Size, DescriptionSettings.Font, Vector2.new(0, 0));
+				for i = 1, math.ceil(TextSize.X / MaxWidth) do
+					Y += TextSize.Y;
 				end
 				Y += 8;
 			end
