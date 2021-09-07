@@ -41,6 +41,7 @@ local function Shadow2px()
 end
 
 local Padding = 10;
+local DescriptionPadding = 10;
 local InstructionObjects = {};
 local TweenTime = 1;
 local TweenStyle = Enum.EasingStyle.Sine;
@@ -96,7 +97,7 @@ local DescriptionSettings = {
 	Size = 14;
 }
 
-local MaxWidth = (Container.AbsoluteSize.X - 10);
+local MaxWidth = (Container.AbsoluteSize.X - Padding - DescriptionPadding);
 
 local function Label(Text, Font, Size, Button)
 	local Label = Instance.new(string.format("Text%s", Button and "Button" or "Label"));
@@ -200,7 +201,7 @@ return {
 			if (Description) then
 				local NewDescription = DescriptionLabel(Description);
 				NewDescription.TextWrapped = true;
-				NewDescription.Size = UDim2.fromScale(1, 1) + UDim2.fromOffset(10, Title and -26 or 0);
+				NewDescription.Size = UDim2.fromScale(1, 1) + UDim2.fromOffset(-DescriptionPadding, Title and -26 or 0);
 				NewDescription.Position = UDim2.fromOffset(10, Title and 26 or 0);
 				NewDescription.TextYAlignment = Enum.TextYAlignment[Title and "Top" or "Center"];
 				NewDescription.Parent = NewLabel;
