@@ -105,6 +105,7 @@ local function Label(Text, Font, Size, Button)
 	Label.TextSize = Size;
 	Label.BackgroundTransparency = 1;
 	Label.TextXAlignment = Enum.TextXAlignment.Left;
+	Label.RichText = true;
 	Label.TextColor3 = Color3.fromRGB(255, 255, 255);
 	return Label;
 end
